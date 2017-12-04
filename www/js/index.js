@@ -45,15 +45,15 @@ function createDialog() {
         'Water time!',            // title
         ['Yes!', "No"]                  // buttons
     );
-
+    createNotification();
 }
         	
         	
         	
 function dialogDismissed(buttonIndex) {
 	
-	if(buttonIndex==1) new Toast({content: "Go get a cup, stay hydrated!", duration: 3000});
-   	else if(buttonIndex==2) new Toast({content: 'Well done, stay hydrated!', duration: 3000});
+	if(buttonIndex==2) new Toast({content: "Go get a cup, stay hydrated!", duration: 3000});
+   	else if(buttonIndex==1){ new Toast({content: 'Well done, stay hydrated!', duration: 3000});
 
 }
 
@@ -65,7 +65,7 @@ function createNotification() {
     //generate a time to post notification
     //
     var currentTime = new Date().getTime(); //current time
-    var notificationTime = new Date(currentTime + 1000); //delayed time  - add 1 second
+    var notificationTime = new Date(currentTime + 60000); //delayed time  - add 1 second
     			
     //
     //setup notification
@@ -73,10 +73,10 @@ function createNotification() {
     
     cordova.plugins.notification.local.schedule({ 
     	id: 		1,
-        title: 		"Hey you",
-        message: 	"This is an example notification",
+        title: 		"Water Check ",
+        message: 	"Click me",
         date: 		notificationTime, 
         badge: 		notification_count++
    	});
-    
+    cordova.plugins.notification.local.click(createDialog())
 }
