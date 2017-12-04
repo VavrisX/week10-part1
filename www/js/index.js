@@ -78,6 +78,7 @@ function createNotification() {
         date: 		notificationTime, 
         badge: 		notification_count++
    	});
-    cordova.plugins.notification.local.on(click, createDialog);
+    cordova.plugins.notification.local.on("click", createDialog);
     cordova.plugins.notification.local.on("trigger", createDialog);
+    
 }
