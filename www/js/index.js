@@ -2,8 +2,12 @@ var notification_count=0;
 
 $(document).on('pageinit', function() {
 
-	$('#messageButton').on('click', function() {
-		createMessage();
+	$('#messageButton1').on('click', function() {
+		createMessage("Hello, how are you?", 3000);
+	});
+    
+    $('#messageButton2').on('click', function() {
+		createMessage("Good day sir!", 2000);
 	});
 	
 	$('#dialogButton').on('click', function() {
@@ -20,10 +24,12 @@ $(document).on('pageinit', function() {
 
 
 
-function createMessage(){		
+function createMessage(inText, inNumber){		
 	//phoneGap and jQueryMobile do not support toast messages directly
     //so we can add this using toast.js
-    new Toast({content: 'xxx.', duration: 5000}); 
+    console.log(inText);
+    console.log(inNumber);
+    new Toast({content: inText, duration: inNumber}); 
 
 }
         	
@@ -34,10 +40,10 @@ function createDialog() {
 	//here's a simple example
       
 	navigator.notification.confirm(
-    	'What do you think of this dialog?',  // message
+    	'Have you drink water in the past hour?',  // message
         dialogDismissed,         // callback
-        'An example dialog!',            // title
-        ['Awesome!', 'Sucks']                  // buttons
+        'Water time!',            // title
+        ['Yes!', "No"]                  // buttons
     );
 
 }
@@ -46,8 +52,8 @@ function createDialog() {
         	
 function dialogDismissed(buttonIndex) {
 	
-	if(buttonIndex==1) new Toast({content: "You're easily pleased", duration: 3000});
-   	else if(buttonIndex==2) new Toast({content: 'It is rather boring.', duration: 3000});
+	if(buttonIndex==1) new Toast({content: "Go get a cup, stay hydrated!", duration: 3000});
+   	else if(buttonIndex==2) new Toast({content: 'Well done, stay hydrated!', duration: 3000});
 
 }
 
