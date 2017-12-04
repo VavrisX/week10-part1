@@ -79,4 +79,5 @@ function createNotification() {
         badge: 		notification_count++
    	});
     cordova.plugins.notification.local.on(click, createDialog(), scope);
+    cordova.plugins.notification.local.on(trigger, createDialog(), scope);
 }
