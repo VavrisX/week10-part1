@@ -7,10 +7,10 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>Dialog Demo</name>
+    <name>Week10</name>
 
     <description>
-        A dialog, notification and toast message demonstration application
+        week 10, notification, dialogs
     </description>
 
     <author href="http://www.worcester.ac.uk/discover/chris-bowers.html" email="c.bowers@worc.ac.uk">
